@@ -141,3 +141,57 @@ mysql> select * from employee_payroll;
 |  3 | Charlie | M      | 3000000 | 2020-05-21 |
 +----+---------+--------+---------+------------+
 3 rows in set (0.00 sec)
+
+..........................................................................................
+
+// UC7 - Finding sum, average, min, max and number of male and female employees.
+
+// Retrieving maximum salary of each gender. 
+mysql> SELECT GENDER,MAX(SALARY) FROM EMPLOYEE_PAYROLL GROUP BY GENDER;
++--------+-------------+
+| GENDER | MAX(SALARY) |
++--------+-------------+
+| M      |     3000000 |
+| F      |     3000000 |
++--------+-------------+
+2 rows in set (1.81 sec)
+
+// Retrieving minimum salary of each gender. 
+mysql> SELECT GENDER,MIN(SALARY) FROM EMPLOYEE_PAYROLL GROUP BY GENDER;
++--------+-------------+
+| GENDER | MIN(SALARY) |
++--------+-------------+
+| M      |     1000000 |
+| F      |     3000000 |
++--------+-------------+
+2 rows in set (0.02 sec)
+
+// Retrieving sum of all salaries of each gender. 
+mysql> SELECT GENDER,SUM(SALARY) FROM EMPLOYEE_PAYROLL GROUP BY GENDER;
++--------+-------------+
+| GENDER | SUM(SALARY) |
++--------+-------------+
+| M      |     4000000 |
+| F      |     3000000 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+// Retrieving the count of all employess of each gender. 
+mysql> SELECT GENDER,COUNT(NAME) FROM EMPLOYEE_PAYROLL GROUP BY GENDER;
++--------+-------------+
+| GENDER | COUNT(NAME) |
++--------+-------------+
+| M      |           2 |
+| F      |           1 |
++--------+-------------+
+2 rows in set (0.00 sec)
+
+// Retrieving average of all salaries of each gender.
+mysql> SELECT GENDER,AVG(SALARY) FROM EMPLOYEE_PAYROLL GROUP BY GENDER;
++--------+-------------+
+| GENDER | AVG(SALARY) |
++--------+-------------+
+| M      |     2000000 |
+| F      |     3000000 |
++--------+-------------+
+2 rows in set (0.01 sec)
